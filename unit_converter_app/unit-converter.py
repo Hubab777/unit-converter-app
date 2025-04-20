@@ -1,7 +1,7 @@
 import streamlit as st
 
 st.title("Unit Converter App")
-st.markdown("### Instant Converter for Length, Weight and Height")
+st.markdown("### Instant Converter for Length, Weight and Time")
 st.write("Welcome! Choose a category, enter the value and get real-time converted result")
 
 category = st.selectbox("Select any category", ["Length", "Weight", "Time"])
@@ -29,18 +29,18 @@ def convert_units(category, value, unit):
         elif unit == "Hours to Minutes":
             return value * 60
         elif unit == "Hours to Days":
-            return value * 24
-        elif unit == "Days to Hours":
             return value / 24
+        elif unit == "Days to Hours":
+            return value * 24
         
 if category == "Length":
-    unit = st.selectbox("Select Conversation",["Kilometres to Miles", "Miles to Kilometres"])
+    unit = st.selectbox("Select Conversion",["Kilometres to Miles", "Miles to Kilometres"])
         
 elif category == "Weight":
-    unit = st.selectbox("Select Conversation", ["Kilograms to Pounds", "Pounds to Kilograms"])
+    unit = st.selectbox("Select Conversion", ["Kilograms to Pounds", "Pounds to Kilograms"])
     
 elif category == "Time":
-    unit = st.selectbox("Select Conversation", ["Seconds to Minutes", "Minutes to Seconds", "Minutes to Hours", "Hours to Minutes", "Hours to Days", "Days to Hours"])
+    unit = st.selectbox("Select Conversion", ["Seconds to Minutes", "Minutes to Seconds", "Minutes to Hours", "Hours to Minutes", "Hours to Days", "Days to Hours"])
     
 value = st.number_input("Enter the value")
 
